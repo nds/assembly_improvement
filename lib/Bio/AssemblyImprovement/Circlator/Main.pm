@@ -70,6 +70,11 @@ sub run {
     	
     	system("cat ".join(" ", @log_files)." > ".$self->output_directory."/circlator.log") and die "Could not cat circlator log files to ".$self->output_directory."/circlator.log";
     	system("rm -rf $temp_dir") and die "Could not delete $temp_dir"; 
+    
+    }else{
+    
+    	die "No output file produced. Failed to run circlator with $cmd";
+    
     }
     
     chdir ($cwd);
